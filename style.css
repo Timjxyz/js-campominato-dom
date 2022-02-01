@@ -74,5 +74,8 @@ footer{
 }
 
 .bomb{
-    background-color: red;
+    background-image: url('https://banner2.cleanpng.com/20180423/lxe/kisspng-minesweeper-pro-classic-mines-puzzle-free-game-div-crystal-clear-5adddb13780780.6936924515244889794917.jpg');
+    background-size: cover;
+    color: #fff;
+    z-index: 10;
 }

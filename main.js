@@ -55,6 +55,8 @@ function play(){
         }
         return true;
     }
+
+    
     function handleCellClick(){
         this.classList.add('clicked');
         this.removeEventListener('click', handleCellClick);
@@ -64,24 +66,24 @@ function play(){
         if(bombe.includes(cell)){
             terminaGioco();
             
+            document.getElementById("risultato").innerHTML = "Hai perso "+ tentativi;
             
             
         }else{
             tentativi.push(cell);
             console.log('al momento hai cliccato su'+ tentativi);
-            document.getElementById("risultato").innerHTML = "Hai selezionato i numeri "+ tentativi;
         }
         
     }
 
     function terminaGioco(){
-
         const quadrati= document.getElementsByClassName('quadrato');
         for(let i = 0; i<quadrati.length; i++){
             if(bombe.includes(parseInt(quadrati[i].innerText))){
                 quadrati[i].classList.add('bomb');
                
             }
+            quadrati[i].removeEventListener('click',handleCellClick)
 
         }
     }
