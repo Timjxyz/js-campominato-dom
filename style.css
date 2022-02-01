@@ -1,0 +1,78 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo img{
+    height: 100%;
+    vertical-align: middle;
+}
+
+
+.logo span{
+    font-size: 30px;
+    vertical-align: middle;
+    font-weight: 600;
+}
+
+
+
+
+/* Main */
+
+main{
+    height: calc(100vh - 120px);
+    background-color: aquamarine;
+    padding-top: 50px;
+}
+
+.container{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+#gioco{
+    height: 100%;
+}
+
+#gioco h1{
+    text-align: center;
+
+}
+
+#gioco::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.quadrato{
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.clicked{
+    background-color: blue;
+}
+
+footer{
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.bomb{
+    background-color: red;
+}
