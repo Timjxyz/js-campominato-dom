@@ -58,34 +58,40 @@ function play(){
 
     
     function handleCellClick(){
-        this.classList.add('clicked');
         this.removeEventListener('click', handleCellClick);
-
+        
         const cell=parseInt( this.innerText);
-
+        
         if(bombe.includes(cell)){
-            terminaGioco();
-            
-            document.getElementById("risultato").innerHTML = "Hai perso "+ tentativi;
+            terminaGioco(tentativi, 'Hai perso!! Sei riuscito a sminare ' + tentativi.length + ' celle');
             
             
         }else{
+            this.classList.add('clicked');
             tentativi.push(cell);
-            console.log('al momento hai cliccato su'+ tentativi);
+     
+        }
+
+        if(tentativi.length>= (numeroCelle - NUMERO_BOMBE)){
+            terminaGioco(tentativi,'Hai vinto!!')
         }
         
     }
 
-    function terminaGioco(){
+    function terminaGioco(arrayDiTentativi , messaggio){
         const quadrati= document.getElementsByClassName('quadrato');
         for(let i = 0; i<quadrati.length; i++){
             if(bombe.includes(parseInt(quadrati[i].innerText))){
                 quadrati[i].classList.add('bomb');
                
+               
             }
-            quadrati[i].removeEventListener('click',handleCellClick)
-
+            //rimuovo l'ascoltatore di eventi sui quadrati
+            quadrati[i].removeEventListener('click',handleCellClick);
         }
+        //stampo i tentativi
+        alert(messaggio);
+        
     }
     
     function generaBombe(numeroBombe, numeroCelle){
